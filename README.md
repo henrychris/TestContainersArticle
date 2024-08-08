@@ -8,7 +8,15 @@ This project demonstrates how to use TestContainers and Respawn write tests that
 Clone the repository  
 
 ```bash
-git clone https://github.com/henrychris/testcontainersarticle.git
+git clone https://github.com/henrychris/TestContainersArticle.git
+```
+
+In `TestContainersArticle.Main`, create an `appsettings.Development.json` file. Add the following section:
+
+```json
+"DatabaseSettings": {
+    "ConnectionString": "Server=localhost;Database=TestContainersDb;Port=5432;User Id=postgres;Password=postgres;"
+  }
 ```
 
 ## Usage
