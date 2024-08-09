@@ -13,5 +13,6 @@ namespace TestContainersArticle.Main.Data.Repositories.Base
         IQueryable<TEntity> GetQueryable();
         Task AddRangeAsync(IEnumerable<TEntity> entities);
         Task<List<TEntity>> GetEntitiesByFilter(Expression<Func<TEntity, bool>> predicate);
+        Task<List<TEntity>> GetAllAsync();
     }
 }

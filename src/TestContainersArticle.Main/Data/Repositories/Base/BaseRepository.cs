@@ -47,5 +47,10 @@ namespace TestContainersArticle.Main.Data.Repositories.Base
         {
             return await Context.Set<TEntity>().Where(predicate).ToListAsync();
         }
+
+        public async Task<List<TEntity>> GetAllAsync()
+        {
+            return await Context.Set<TEntity>().ToListAsync();
+        }
     }
 }
