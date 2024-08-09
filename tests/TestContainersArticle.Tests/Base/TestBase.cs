@@ -21,7 +21,6 @@ namespace TestContainersArticle.Tests.Base
             await _container.StartAsync();
 
             _connectionString = _container.GetConnectionString();
-            await Console.Out.WriteLineAsync(_connectionString);
         }
 
         [OneTimeTearDown]
