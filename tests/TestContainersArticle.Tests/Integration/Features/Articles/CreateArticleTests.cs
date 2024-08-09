@@ -72,7 +72,7 @@ namespace TestContainersArticle.Tests.Integration.Features.Articles
                 .Default()
                 .WithTitle(title)
                 .WithContent(content)
-                .WithDateToPublish(TestContext.CurrentContext.Test.Name == "Past Date" ? DateTime.UtcNow.AddDays(-1) : DateTime.UtcNow.AddDays(1))
+                .WithDateToPublish(DateTime.UtcNow.AddDays(1))
                 .Build();
 
             // Act
