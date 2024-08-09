@@ -136,5 +136,23 @@ namespace TestContainersArticle.Tests.Integration.Features.Articles
             createdArticles.Should().HaveCount(5);
             createdArticles.Select(a => a.Title).Should().BeEquivalentTo(requests.Select(r => r.Title));
         }
+
+        [Test]
+        public async Task Handle_UseNonUtcDate_ThrowsException()
+        {
+            // arrange
+            var request = CreateArticleRequestBuilder
+                .Default()
+                .WithTitle($"Article with bad date.")
+                .WithContent($"This date is in the past.")
+                .WithDateToPublish(DateTime.Now.AddDays(1))
+                .Build();
+
+            // act & assert
+            await FluentActions
+                .Invoking(() => _handler.Handle(request, CancellationToken.None))
+                .Should()
+                .ThrowAsync<Microsoft.EntityFrameworkCore.DbUpdateException>();
+        }
     }
 }
